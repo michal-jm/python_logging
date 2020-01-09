@@ -3,3 +3,23 @@ format strings -10s in the example given at this website: https://pyformat.info/
 https://docs.python.org/3/howto/logging.html
 https://docs.python.org/2.4/lib/module-logging.html
 https://www.toptal.com/python/in-depth-python-logging
+
+CREATE DATABASE first_database;
+
+USE first_database;
+
+-- show current db
+SELECT DB_NAME() AS [Current Database];
+
+CREATE TABLE city (
+    id int  NOT NULL IDENTITY(1, 1),
+    city_name char(128)  NOT NULL,
+    lat decimal(9,6)  NOT NULL,
+    long decimal(9,6)  NOT NULL,
+    country_id int  NOT NULL,
+    CONSTRAINT city_pk PRIMARY KEY  (id)
+);
+NOT NULL -> This is a property telling us that this column can’t be empty (must be defined)
+IDENTITY(1, 1) -> is also a property of the column telling us that this value shall be generated automatically, starting from 1 and increasing by 1 for each new record
+CONSTRAINT city_pk PRIMARY KEY (id) -> This is not a column, but the rule, telling us that column id shall contain only UNIQUE values. So only 1 city can have id =5
+
